@@ -52,6 +52,13 @@ tasks:
     cmds:
       - ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/cluster-nuke-ceph-rook.yml
 
+  nuke-ceph-rook:
+    desc: Cleanup Ceph Rook resources
+    dir: provision/ansible
+    interactive: true
+    cmds:
+      - ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/cluster-nuke-ceph-rook.yml
+
   ping:
     desc: Ping all the hosts
     dir: "{{.ANSIBLE_DIR}}"
