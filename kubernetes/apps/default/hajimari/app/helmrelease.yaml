@@ -26,6 +26,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    env:
+      TZ: America/Los_Angeles
     hajimari:
       title: Apps
       darkTheme: espresso
@@ -40,6 +42,10 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - flux-system
+          - monitoring
+          - networking
+          - rook-ceph
     ingress:
       main:
         enabled: true
