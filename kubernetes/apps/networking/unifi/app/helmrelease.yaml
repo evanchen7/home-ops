@@ -103,7 +103,9 @@ spec:
         enabled: true
         existingClaim: unifi-data
         mountPath: /unifi
-
+    controller:
+      replicas: 1
+      strategy: RollingUpdate
     resources:
       requests:
         cpu: 23m
