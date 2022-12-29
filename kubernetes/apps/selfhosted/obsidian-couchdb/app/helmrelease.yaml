@@ -61,6 +61,8 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-production
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           external-dns.home.arpa/enabled: "true"
         hosts:
           - host: &host "obsidian-db.${SECRET_DOMAIN}"
@@ -69,6 +71,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: obsidian-db-tls
 
     persistence:
       config:
