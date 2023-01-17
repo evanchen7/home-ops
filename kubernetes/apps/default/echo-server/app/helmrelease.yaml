@@ -56,10 +56,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-<<<<<<< HEAD
-=======
           cert-manager.io/cluster-issuer: letsencrypt-production
->>>>>>> Update tls for echo-server
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           hajimari.io/icon: video-input-antenna
         hosts:
