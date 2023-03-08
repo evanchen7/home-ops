@@ -29,7 +29,7 @@ spec:
       dashboard:
         ingressClassName: "nginx"
         host:
-          name: &host "rook.evanchen.xyz"
+          name: &host "rook.${SECRET_DOMAIN}"
           path: /
         tls:
           - hosts:
@@ -70,7 +70,8 @@ spec:
         spec:
           failureDomain: host
           replicated:
-            size: 3
+            size: 1
+            requireSafeReplicaSize: false
         storageClass:
           enabled: true
           name: ceph-block
@@ -92,11 +93,13 @@ spec:
         spec:
           metadataPool:
             replicated:
-              size: 3
+              size: 1
+              requireSafeReplicaSize: false
           dataPools:
             - failureDomain: host
               replicated:
-                size: 3
+                size: 1
+                requireSafeReplicaSize: false
               name: data0
           metadataServer:
             activeCount: 1
@@ -108,7 +111,7 @@ spec:
               limits:
                 memory: 4Gi
         storageClass:
-          enabled: true
+          enabled: false
           isDefault: false
           name: ceph-filesystem
           pool: data0
