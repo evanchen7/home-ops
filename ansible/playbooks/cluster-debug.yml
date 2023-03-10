@@ -1,0 +1,26 @@
+---
+- name: Ansible Variable Example Playbook
+  hosts:
+    - master
+    - worker
+  become: true
+  gather_facts: true
+  tasks:
+    # display the variable data type
+    # - debug:
+    #     msg:
+    #       - " Data type of 'ansible_architecture'  is {{ ansible_architecture | type_debug }} "
+    #       - " Data type of 'ansible_apparmor' is {{ ansible_apparmor | type_debug }} "
+    #       - " Data type of 'ansible_all_ipv4_addresses' is {{ ansible_all_ipv4_addresses | type_debug }} "
+
+    # # Simply printing the value of fact which is Ansible UnSafe Text type
+    # - debug:
+    #     msg: "{{ ansible_mounts }}"
+
+    - name: Get Device By Id
+      register: shell_output
+      ansible.builtin.shell: |
+        ls -lha /dev/disk/by-id
+        echo "This will go in log file"
+
+    - debug: var=shell_output
