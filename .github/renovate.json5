@@ -23,7 +23,7 @@
   ],
   "rebaseWhen": "conflicted",
   "schedule": [
-    "on saturday"
+    "every saturday"
   ],
   "pre-commit": {
     "enabled": true
