@@ -1,4 +1,3 @@
 {
-    "forkProcessing": true,
-    "repoIsOnboarded": true
+    "forkProcessing": "enabled"
 }
