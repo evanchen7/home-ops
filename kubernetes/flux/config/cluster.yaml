@@ -8,10 +8,10 @@ spec:
   interval: 30m
   ref:
     branch: main
-  # url: "https://github.com/evanchen7/home-ops"
-  url: "ssh://git@github.com/evanchen7/home-ops"
-  secretRef:
-    name: github-deploy-key
+  url: "https://github.com/evanchen7/home-ops"
+  # url: "ssh://git@github.com/evanchen7/home-ops"
+  # secretRef:
+  #   name: github-deploy-key
   ignore: |
     # exclude all
     /*
