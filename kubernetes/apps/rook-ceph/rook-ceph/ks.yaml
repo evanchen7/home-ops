@@ -4,8 +4,6 @@ kind: Kustomization
 metadata:
   name: rook-ceph-operator
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
 spec:
   path: ./kubernetes/apps/rook-ceph/rook-ceph/operator
   prune: true
@@ -26,8 +24,6 @@ kind: Kustomization
 metadata:
   name: rook-ceph-cluster
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
     - name: rook-ceph-operator
@@ -49,8 +45,6 @@ kind: Kustomization
 metadata:
   name: rook-direct-mount
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
     - name: rook-ceph-operator

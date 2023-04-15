@@ -44,7 +44,7 @@ spec:
       continueUpgradeAfterChecksEvenIfNotHealthy: false
       waitTimeoutForHealthyOSDInMinutes: 10
       mon:
-        count: 3
+        count: 1
         allowMultiplePerNode: true
       mgr:
         count: 1
