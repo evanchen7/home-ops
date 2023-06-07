@@ -2,19 +2,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-kube-vip
+  name: cluster-apps-cloudflared
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/kube-system/kube-vip/app
+  dependsOn:
+    - name: cluster-apps-external-dns
+  path: ./kubernetes/apps/networking/cloudflared/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-kubernetes
-  healthChecks:
-    - apiVersion: apps/v1
-      kind: DaemonSet
-      name: kube-vip
-      namespace: kube-system
+  wait: false # no flux ks dependents
   interval: 30m
   retryInterval: 1m
-  timeout: 3m
+  timeout: 5m
